@@ -13,17 +13,18 @@ public class DrawPanel extends JPanel implements ActionListener {
 
     private Gates gates;
     private Human human;
+    private Ball ball;
 
     public DrawPanel(final int width, final int height, final int timerDelay) {
         this.PANEL_WIDTH = width;
         this.PANEL_HEIGHT = height;
         this.TIMER_DELAY = timerDelay;
-        timer = new Timer(timerDelay, this);
+        timer = new Timer(5, this);
         timer.start();
 
-        this.gates = new Gates( 50, 800);
+        this.gates = new Gates( 800, 400);
         this.human = new Human( 50, 400);
-
+        this.ball = new Ball(100,400);
     }
 
     @Override
@@ -35,13 +36,21 @@ public class DrawPanel extends JPanel implements ActionListener {
         gr.fillRect(0, (int) (getHeight() * 0.6),getWidth(),getHeight());
         gates.draw(gr);
         human.humanDraw(gr);
+        ball.setX(ticksFromStart);
+        ball.draw(gr);
+
     }
 
     @Override
     public void actionPerformed(final ActionEvent e) {
         if (e.getSource() == timer) {
-            repaint();
+//            ball.updateWorld();
+            renderWorld();
             ++ticksFromStart;
         }
+    }
+
+    private void renderWorld() {
+        repaint();
     }
 }

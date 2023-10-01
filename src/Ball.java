@@ -1,11 +1,11 @@
 import java.awt.*;
 
-public class Boll {
+public class Ball {
     private int x;
     private int y;
 
 
-    public Boll(final int x, final int y) {
+    public Ball(final int x, final int y) {
         this.x = x;
         this.y = y;
 
@@ -19,9 +19,18 @@ public class Boll {
         this.y = y;
     }
 
+
+
     void draw(final Graphics gr){
         Graphics2D g = (Graphics2D) gr;
-        g.setColor(new Color(255, 0, 255));
-        g.fillOval(100,500,30,30);
+        g.setColor(new Color(0, 0, 0));
+        g.fillOval(this.x + 100,this.y + 80,40,40);
+        g.setColor(Color.WHITE);
+        g.fillOval(this.x + 105,this.y + 85,30,30);
+        g.setColor(Color.BLACK);
+        g.drawOval(this.x + 105,this.y + 85,30,30);
+        g.drawOval(this.x + 100,this.y + 80,40,40);
+
+        g.fillOval(this.x + 112,this.y + 93,15,15);
     }
 }

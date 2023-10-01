@@ -55,6 +55,6 @@ public class Human {
         g.drawOval(50,370,6,6);
         g.drawOval(75,370,6,6);         //глаза
 
-        g.drawOval(53,380,20,5);
+        g.drawOval(53,380,20,5);        //рот
     }
 }
